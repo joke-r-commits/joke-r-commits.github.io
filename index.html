@@ -56,6 +56,7 @@
         </div>
         <div class="tab-content" id="tabContent">
           <h1 id="pageTitle">Welcome to Page 1</h1>
+          <img id="jackSparrowImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Asher_as_Captain_Jack_Sparrow.jpg/400px-Asher_as_Captain_Jack_Sparrow.jpg" alt="Jack Sparrow" style="display:none; max-width:400px; border-radius:8px; margin-top:20px;">
         </div>
       </div>
       <script>
@@ -84,7 +85,7 @@
 } catch(e) { errorMsg.textContent = 'Server unavailable.'; errorMsg.style.display = 'block'; }
 }
     function showDashboard() { document.getElementById('loginPage').style.display = 'none'; document.getElementById('dashboard').style.display = 'block'; }
-    function switchTab(el) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); document.getElementById('pageTitle').textContent = 'Welcome to Page ' + el.getAttribute('data-page'); }
+    function switchTab(el) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); const page = el.getAttribute('data-page'); document.getElementById('pageTitle').textContent = 'Welcome to Page ' + page; document.getElementById('jackSparrowImg').style.display = page === '2' ? 'block' : 'none'; }
     function logout() { localStorage.removeItem('token'); document.getElementById('dashboard').style.display = 'none'; document.getElementById('loginPage').style.display = 'flex'; document.getElementById('username').value = ''; document.getElementById('password').value = ''; }
   </script>
 </body>
