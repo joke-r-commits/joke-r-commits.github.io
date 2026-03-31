@@ -28,6 +28,9 @@
     .logout-btn:hover { border-color: #333; color: #333; }
     .welcome-message { position: absolute; top: 40px; left: 0; right: 0; text-align: center; }
     .welcome-message p { font-size: 32px; font-weight: 300; color: #333; margin: 0; }
+    .login-container { background-image: url('bean.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+    .login-container::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.75); z-index: 0; }
+    .login-container > * { position: relative; z-index: 1; }
   </style>
     </head>
     <body>
@@ -56,7 +59,7 @@
         </div>
         <div class="tab-content" id="tabContent">
           <h1 id="pageTitle">Welcome to Page 1</h1>
-          <img id="jackSparrowImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Asher_as_Captain_Jack_Sparrow.jpg/400px-Asher_as_Captain_Jack_Sparrow.jpg" alt="Jack Sparrow" style="display:none; max-width:400px; border-radius:8px; margin-top:20px;">
+          <img id="jackSparrowImg" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/OriginalSparrow.jpg/400px-OriginalSparrow.jpg" alt="Jack Sparrow" style="display:none; max-width:400px; border-radius:8px;">
         </div>
       </div>
       <script>
@@ -85,7 +88,7 @@
 } catch(e) { errorMsg.textContent = 'Server unavailable.'; errorMsg.style.display = 'block'; }
 }
     function showDashboard() { document.getElementById('loginPage').style.display = 'none'; document.getElementById('dashboard').style.display = 'block'; }
-    function switchTab(el) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); const page = el.getAttribute('data-page'); document.getElementById('pageTitle').textContent = 'Welcome to Page ' + page; document.getElementById('jackSparrowImg').style.display = page === '2' ? 'block' : 'none'; }
+    function switchTab(el) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); const page = el.getAttribute('data-page'); document.getElementById('pageTitle').style.display = page === '2' ? 'none' : 'block'; document.getElementById('pageTitle').textContent = 'Welcome to Page ' + page; document.getElementById('jackSparrowImg').style.display = page === '2' ? 'block' : 'none'; }
     function logout() { localStorage.removeItem('token'); document.getElementById('dashboard').style.display = 'none'; document.getElementById('loginPage').style.display = 'flex'; document.getElementById('username').value = ''; document.getElementById('password').value = ''; }
   </script>
 </body>
