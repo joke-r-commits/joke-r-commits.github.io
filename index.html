@@ -28,9 +28,10 @@
     .logout-btn:hover { border-color: #333; color: #333; }
     .welcome-message { position: absolute; top: 40px; left: 0; right: 0; text-align: center; }
     .welcome-message p { font-size: 32px; font-weight: 300; color: #333; margin: 0; }
-    .login-container { background-image: url('bean.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+    .login-container { background-image: url('bean.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; }
     .login-container::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.75); z-index: 0; }
-    .login-container > * { position: relative; z-index: 1; }
+    .welcome-message { z-index: 1; }
+    .login-box { position: relative; z-index: 1; }
   </style>
     </head>
     <body>
